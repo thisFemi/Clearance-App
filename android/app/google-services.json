@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "507033172753",
+    "firebase_url": "https://aaua-e-clearance-default-rtdb.firebaseio.com",
+    "project_id": "aaua-e-clearance",
+    "storage_bucket": "aaua-e-clearance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507033172753:android:d5966294d7f4e1e525aab0",
+        "android_client_info": {
+          "package_name": "com.example.clearanceapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "507033172753-5b8ojrar6frrmdh52p10drrqptgjlo5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3WRMTM9a2cZYGFIJgeRxYHzQ525VmWgA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "507033172753-5b8ojrar6frrmdh52p10drrqptgjlo5e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "507033172753-mkr7ii1323p2u16ed0mb0ibdrnogmsk5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.clearanceapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

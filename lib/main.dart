@@ -10,6 +10,7 @@ import 'package:clearanceapp/providers/users.dart';
 import 'package:clearanceapp/screens/init/main_screen.dart';
 import 'package:clearanceapp/screens/init/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -23,13 +24,20 @@ import 'Student/student_register.dart';
 import 'firebase_options.dart';
 import 'models/utils/Colors.dart';
 
-void main() async {
+Future<void> _firebaseMessagingBackgroundHandler(message) async {
+  await Firebase.initializeApp();
+  print('Handling a background message ${message.messageId}');
+}
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(MyApp());
 }
 

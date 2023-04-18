@@ -119,393 +119,403 @@ class _StudentDashboardState extends State<StudentDashboard> {
           ),
         ),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 30, bottom: 30),
-              //   decoration: const BoxDecoration(
-              //   gradient: LinearGradient(
-              //     begin: Alignment.bottomRight,
-              //     end: Alignment.bottomRight,
-              //     colors: [
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 30, bottom: 30),
+                //   decoration: const BoxDecoration(
+                //   gradient: LinearGradient(
+                //     begin: Alignment.bottomRight,
+                //     end: Alignment.bottomRight,
+                //     colors: [
 
-              //     Color(0xff0d324d), Color(0xff7f5a83)])
-              // ),
+                //     Color(0xff0d324d), Color(0xff7f5a83)])
+                // ),
 
-              alignment: Alignment.center,
-              child: SimpleCircularProgressBar(
-                size: 130,
-                valueNotifier: loadedStudent.ischiefAuditCheck
-                    ? ValueNotifier(100.0)
-                    : ValueNotifier(25),
-                progressStrokeWidth: 24,
-                backStrokeWidth: 24,
-                mergeMode: true,
-                onGetText: (value) {
-                  return Text(
-                    '${value.toInt()}',
-                    style: centerTextStyle,
-                  );
-                },
-                progressColors: const [Colors.cyan, Colors.purple],
-              ),
-            ),
-            Container(
-              // height: MediaQuery.of(context).size.height * .5,
-              child: GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 3 / 2.1,
-                  crossAxisSpacing: 3,
-                  mainAxisSpacing: 10,
+                alignment: Alignment.center,
+                child: SimpleCircularProgressBar(
+                  size: 130,
+                  valueNotifier: loadedStudent.ischiefAuditCheck
+                      ? ValueNotifier(100.0)
+                      : ValueNotifier(25),
+                  progressStrokeWidth: 24,
+                  backStrokeWidth: 24,
+                  mergeMode: true,
+                  onGetText: (value) {
+                    return Text(
+                      '${value.toInt()}',
+                      style: centerTextStyle,
+                    );
+                  },
+                  progressColors: const [Colors.cyan, Colors.purple],
                 ),
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                children: [
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Department \nLevel',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.isDepartmentCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.isDepartmentCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.isDepartmentCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Faculty \nLevel',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.isFacultyCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.isFacultyCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.isFacultyCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Student \nAffairs ',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.isStudentAffairsCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.isStudentAffairsCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.isStudentAffairsCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Bursary ',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.isBursaryCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.isBursaryCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.isBursaryCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Alumni\nOffice',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.isAlumniCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.isAlumniCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.isAlumniCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Library',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.isLibraryCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.isLibraryCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.isLibraryCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Health\nCenter',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.isTechnologistCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.isTechnologistCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.isTechnologistCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                  ClipRRect(
-                      child: Container(
-                    // width: 50,
-                    // height: 50,
-                    margin: EdgeInsets.only(left: 20, right: 20, top: 10),
-                    decoration: BoxDecoration(
-                        color: color2, borderRadius: BorderRadius.circular(10)),
-                    child: Stack(
-                      children: [
-                        Center(
-                            child: Text(
-                          'Chief\nAuditor',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        )),
-                        Positioned(
-                            top: 10,
-                            right: 10,
-                            child: Container(
-                              padding: EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: loadedStudent.ischiefAuditCheck
-                                      ? color10
-                                      : color8),
-                              child: Text(
-                                loadedStudent.ischiefAuditCheck
-                                    ? "Approved"
-                                    : "Pending",
-                                style: TextStyle(
-                                    color: loadedStudent.ischiefAuditCheck
-                                        ? color3
-                                        : color3,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ))
-                      ],
-                    ),
-                  )),
-                ],
               ),
-            ),
-            Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child: loadedStudent.ischiefAuditCheck
-                    ? CustomButton(
-                        buttonText: 'View Report',
-                        textColor: color6,
-                        backgroundColor: color3,
-                        isBorder: false,
-                        borderColor: color6,
-                        onclickFunction: () async {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => PdfPreviewPage(
-                                user: loadedStudent,
+              Container(
+                // height: MediaQuery.of(context).size.height * .5,
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 3 / 2.1,
+                    crossAxisSpacing: 3,
+                    mainAxisSpacing: 10,
+                  ),
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  children: [
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Department \nLevel',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.isDepartmentCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.isDepartmentCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.isDepartmentCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Faculty \nLevel',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.isFacultyCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.isFacultyCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.isFacultyCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Student \nAffairs ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.isStudentAffairsCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.isStudentAffairsCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.isStudentAffairsCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Bursary ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.isBursaryCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.isBursaryCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.isBursaryCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Alumni\nOffice',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.isAlumniCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.isAlumniCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.isAlumniCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Library',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.isLibraryCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.isLibraryCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.isLibraryCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Health\nCenter',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.isTechnologistCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.isTechnologistCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.isTechnologistCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                    ClipRRect(
+                        child: Container(
+                      // width: 50,
+                      // height: 50,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 10),
+                      decoration: BoxDecoration(
+                          color: color2,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Stack(
+                        children: [
+                          Center(
+                              child: Text(
+                            'Chief\nAuditor',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          )),
+                          Positioned(
+                              top: 10,
+                              right: 10,
+                              child: Container(
+                                padding: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: loadedStudent.ischiefAuditCheck
+                                        ? color10
+                                        : color8),
+                                child: Text(
+                                  loadedStudent.ischiefAuditCheck
+                                      ? "Approved"
+                                      : "Pending",
+                                  style: TextStyle(
+                                      color: loadedStudent.ischiefAuditCheck
+                                          ? color3
+                                          : color3,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ))
+                        ],
+                      ),
+                    )),
+                  ],
+                ),
+              ),
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: loadedStudent.ischiefAuditCheck
+                      ? CustomButton(
+                          buttonText: 'View Report',
+                          textColor: color6,
+                          backgroundColor: color3,
+                          isBorder: false,
+                          borderColor: color6,
+                          onclickFunction: () async {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => PdfPreviewPage(
+                                  user: loadedStudent,
+                                ),
                               ),
-                            ),
-                          );
-                        })
-                    : Text(""))
-          ],
+                            );
+                          })
+                      : Text(""))
+            ],
+          ),
         ),
       ),
     );

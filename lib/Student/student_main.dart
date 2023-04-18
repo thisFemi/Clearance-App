@@ -29,8 +29,8 @@ class _StudentAuthScreenState extends State<StudentAuthScreen> {
   Map<String, String> _authData = {'matric': '', 'password': ''};
   @override
   void initState() {
-    _matric.text = '17040418';
-    _password.text = '123456';
+    // _matric.text = '17040418';
+    // _password.text = '123456';
     super.initState();
   }
 

@@ -18,19 +18,7 @@ class FormValidation {
   }
 
   static String? studentValidation(String value, String errorMessage) {
-    if (_basicValidation(value) && value.startsWith('17', 0) ||
-        value.startsWith('18', 0) ||
-        value.startsWith('16', 0) ||
-        value.startsWith('15', 0) ||
-        value.startsWith('14', 0) ||
-        value.startsWith('13', 0) ||
-        value.startsWith('12', 0) ||
-        value.startsWith('11', 0) ||
-        value.startsWith('10', 0) ||
-        value.startsWith('09', 0) ||
-        value.startsWith('08', 0) ||
-        value.startsWith('07', 0) ||
-        value.startsWith('06', 0)) {
+    if (value.length>9 && value.startsWith('1704040', 0)) {
       return null;
     }
 

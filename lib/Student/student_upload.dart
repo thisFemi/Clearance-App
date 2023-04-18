@@ -670,7 +670,7 @@ class _StudentUploadState extends State<StudentUpload> {
                 Padding(
                     padding: EdgeInsets.symmetric(horizontal: 45, vertical: 20),
                     child: CustomButton(
-                        buttonText: 'Login',
+                        buttonText: 'Submit',
                         textColor: color6,
                         backgroundColor: color3,
                         isBorder: false,

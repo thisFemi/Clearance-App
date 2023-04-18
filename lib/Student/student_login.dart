@@ -33,7 +33,8 @@ class _StudentCheckState extends State<StudentCheck> {
   @override
   void initState() {
     if (_isInit) {
-      Provider.of<Users>(context, listen: false).fetchAndSetClearanceOrders(context);
+      Provider.of<Users>(context, listen: false)
+          .fetchAndSetClearanceOrders(context);
     }
     _isInit = false;
     super.initState();

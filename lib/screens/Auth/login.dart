@@ -81,18 +81,7 @@ class _LoginState extends State<Login> {
           errorMessage = 'Invalid Password';
         }
         _showErrorDialog(errorMessage);
-        if (error.toString().contains('EMAIL_EXISTS')) {
-          errorMessage = 'This email address is already in use';
-        } else if (error.toString().contains('INVALID_EMAIL')) {
-          errorMessage = 'This is not a valid email address';
-        } else if (error.toString().contains('WEAK_PASSWORD')) {
-          errorMessage = 'This password is to weak';
-        } else if (error.toString().contains('EMAIL_NOT_FOUND')) {
-          errorMessage = 'Could  not find a user with that email';
-        } else if (error.toString().contains('INVALID_PASSWORD')) {
-          errorMessage = 'Invalid Password';
-        }
-        _showErrorDialog(errorMessage);
+  
       }).onError((error, stackTrace) {
         const errorMessage =
             'Could not authenticate user, please try again later';
